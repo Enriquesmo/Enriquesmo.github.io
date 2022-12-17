@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ISOFT2-2022-ET.02</a> &gt; <a href="index.source.html" class="el_package">ISOFT2_2022_ET.ISOFT2_2022_ET</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package ISOFT2_2022_ET.ISOFT2_2022_ET;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import ISOFT2_2022_ET.ISOFT2_2022_ET.model.Triangulo;
+
+/**
+ * Clase de ejecución del sistema
+ * @author Agustin Sanchez
+ *
+ */
+<span class="nc" id="L14">public class Main {</span>
+
+	/**
+	 * Scanner necesario para tomar los datos de la terminal de comadnos
+	 */
+<span class="nc" id="L19">	public static final Scanner TECLADO = new Scanner(System.in, &quot;UTF8&quot;);</span>
+	
+	/**
+	 * Creación del controlador que calcula que tipo de triangulo es
+	 */
+
+	/**
+	 * Método principal que lanza la aplicación.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+<span class="nc" id="L30">		List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">		String[] messages = { &quot;Lado 1&quot;, &quot;Lado 2&quot;, &quot;Lado 3&quot;, &quot;Angulo 1&quot;, &quot;Angulo 2&quot;, &quot;Angulo 3&quot; }; for (int i = 0; i &lt; messages.length; i++) {</span>
+<span class="nc" id="L32">		System.out.println(messages[i]); list.add(leerEnteros()); }</span>
+<span class="nc" id="L33">		Triangulo t = new Triangulo(); t.setLado1(list.get(0));</span>
+<span class="nc" id="L34">		t.setLado2(list.get(1));</span>
+<span class="nc" id="L35">		t.setLado3(list.get(2));</span>
+<span class="nc" id="L36">		t.setAngulo1(list.get(3));</span>
+<span class="nc" id="L37">		t.setAngulo2(list.get(4));</span>
+<span class="nc" id="L38">		t.setAngulo3(list.get(5));</span>
+<span class="nc" id="L39">		t.tipoDeTriangulo();</span>
+<span class="nc" id="L40">	}</span>
+
+	/**
+	 * Método recoge el valor de un entero de la terminal de comandos, comprueba si no se introduce un caracter valido
+	 * @return numero desde menos infinito a mas infinito
+	 */
+	private static int leerEnteros() {
+<span class="nc" id="L47">		Integer value = 0;</span>
+		try {
+<span class="nc" id="L49">			value = TECLADO.nextInt();</span>
+<span class="nc" id="L50">		} catch (Exception e) {</span>
+<span class="nc" id="L51">			System.out.println(&quot;No se pueden introducir caracteres&quot;);</span>
+		}
+
+<span class="nc" id="L54">		return value;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

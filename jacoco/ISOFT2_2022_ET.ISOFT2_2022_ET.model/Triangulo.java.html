@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Triangulo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ISOFT2-2022-ET.02</a> &gt; <a href="index.source.html" class="el_package">ISOFT2_2022_ET.ISOFT2_2022_ET.model</a> &gt; <span class="el_source">Triangulo.java</span></div><h1>Triangulo.java</h1><pre class="source lang-java linenums">package ISOFT2_2022_ET.ISOFT2_2022_ET.model;
+
+import ISOFT2_2022_ET.ISOFT2_2022_ET.exceptions.AngulosValidosException;
+import ISOFT2_2022_ET.ISOFT2_2022_ET.exceptions.NumerosValidosException;
+
+/**
+ * Clase triangulo
+ * 
+ * @author Agustin Sanchez
+ *
+ */
+public class Triangulo {
+	int lado1;
+	int lado2;
+	int lado3;
+	int angulo1;
+	int angulo2;
+	int angulo3;
+
+	/**
+	 * Constructor vacio
+	 */
+	public Triangulo() {
+<span class="nc" id="L24">		super();</span>
+<span class="nc" id="L25">	}</span>
+
+	/**
+	 * Metodo getter del lado1
+	 * 
+	 * @return el valor del lado1
+	 */
+	public int getLado1() {
+<span class="nc" id="L33">		return lado1;</span>
+	}
+
+	/**
+	 * 
+	 * @param lado1 valor para settear el primer lado del triangulo
+	 */
+	public void setLado1(int lado1) {
+<span class="nc" id="L41">		this.lado1 = lado1;</span>
+<span class="nc" id="L42">	}</span>
+
+	/**
+	 * Metodo getter del lado2
+	 * 
+	 * @return el valor del lado2
+	 */
+	public int getLado2() {
+<span class="nc" id="L50">		return lado2;</span>
+	}
+
+	/**
+	 * 
+	 * @param lado2 valor para settear el segundo lado del triangulo
+	 */
+	public void setLado2(int lado2) {
+<span class="nc" id="L58">		this.lado2 = lado2;</span>
+<span class="nc" id="L59">	}</span>
+
+	/**
+	 * Metodo getter del lado3
+	 * 
+	 * @return el valor del lado3
+	 */
+	public int getLado3() {
+<span class="nc" id="L67">		return lado3;</span>
+	}
+
+	/**
+	 * 
+	 * @param lado3 valor para settear el tercer lado del triangulo
+	 */
+	public void setLado3(int lado3) {
+<span class="nc" id="L75">		this.lado3 = lado3;</span>
+<span class="nc" id="L76">	}</span>
+
+	/**
+	 * Metodo getter del angulo1
+	 * 
+	 * @return el valor del angulo1
+	 */
+	public int getAngulo1() {
+<span class="nc" id="L84">		return angulo1;</span>
+	}
+
+	/**
+	 * 
+	 * @param angulo1 valor para settear el primer angulo del triangulo
+	 */
+	public void setAngulo1(int angulo1) {
+<span class="nc" id="L92">		this.angulo1 = angulo1;</span>
+<span class="nc" id="L93">	}</span>
+
+	/**
+	 * Metodo getter del angulo2
+	 * 
+	 * @return el valor del angulo2
+	 */
+	public int getAngulo2() {
+<span class="nc" id="L101">		return angulo2;</span>
+	}
+
+	/**
+	 * 
+	 * @param angulo2 valor para settear el segundo angulo del triangulo
+	 */
+	public void setAngulo2(int angulo2) {
+<span class="nc" id="L109">		this.angulo2 = angulo2;</span>
+<span class="nc" id="L110">	}</span>
+
+	/**
+	 * Metodo getter del angulo3
+	 * 
+	 * @return el valor del angulo3
+	 */
+	public int getAngulo3() {
+<span class="nc" id="L118">		return angulo3;</span>
+	}
+
+	/**
+	 * 
+	 * @param angulo3 valor para settear el tercer angulo del triangulo
+	 */
+	public void setAngulo3(int angulo3) {
+<span class="nc" id="L126">		this.angulo3 = angulo3;</span>
+<span class="nc" id="L127">	}</span>
+
+	/**
+	 * Comprueba el tipo de triangulo introducido lanzando excepciones en caso de error
+	 * @return retorna en formato String el tipo de triangulo introducido
+	 */
+	public String tipoDeTriangulo() {
+<span class="nc" id="L134">		String result = &quot;&quot;;</span>
+		// Ifs para comprobar que los valroes no sean negativos y 0
+<span class="nc bnc" id="L136" title="All 12 branches missed.">		if (getLado1() &lt;= 0 || getLado2() &lt;= 0 || getLado3() &lt;= 0 || getAngulo1() &lt;= 0 || getAngulo2() &lt;= 0 || getAngulo3() &lt;= 0) {</span>
+<span class="nc" id="L137">			throw new NumerosValidosException(&quot;Numeros negativos no validos&quot;);</span>
+		}
+
+		// Ifs para comprobar que cumpla la condicion de triangulo
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		if ((getAngulo1() + getAngulo2() + getAngulo3()) &gt; 180) {</span>
+<span class="nc" id="L142">			throw new AngulosValidosException(&quot;Angulos no validos&quot;);</span>
+		}
+
+		// Ifs para comprobar que tipo es segun los lados
+<span class="nc bnc" id="L146" title="All 4 branches missed.">		if (getLado1() == getLado2() &amp;&amp; getLado1() == getLado3()) {</span>
+<span class="nc" id="L147">			result += &quot;Equilatero &quot;;</span>
+<span class="nc bnc" id="L148" title="All 6 branches missed.">		} else if (getLado1() != getLado2() &amp;&amp; getLado1() != getLado3() &amp;&amp; getLado2() != getLado3()) {</span>
+<span class="nc" id="L149">			result += &quot;Escaleno &quot;;</span>
+<span class="nc" id="L150">		} else {</span>
+<span class="nc" id="L151">			result += &quot;Isosceles &quot;;</span>
+		}
+		// Ifs para comprobar que tipo es segun los angulos
+<span class="nc bnc" id="L154" title="All 6 branches missed.">		if (getAngulo1() == 90 || getAngulo2() == 90 || getAngulo3() == 90) {</span>
+<span class="nc" id="L155">			result += &quot;Rectangulo&quot;;</span>
+<span class="nc bnc" id="L156" title="All 6 branches missed.">		} else if (getAngulo1() &lt; 90 &amp;&amp; getAngulo2() &lt; 90 &amp;&amp; getAngulo3() &lt; 90) {</span>
+<span class="nc" id="L157">			result += &quot;Acutangulo&quot;;</span>
+<span class="nc" id="L158">		} else {</span>
+<span class="nc" id="L159">			result += &quot;Obstusangulo&quot;;</span>
+		}
+<span class="nc" id="L161">		return result;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
