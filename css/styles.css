@@ -1,0 +1,245 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: url('../images/Foto_Fondo.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Pantalla de carga */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#loader .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f0f0f0;
+    border-top: 5px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Barra de navegación */
+header {
+    background: #f8f8f8;
+    color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: padding 0.3s, height 0.3s;
+}
+
+header.shrink {
+    padding: 0.25rem 1rem;
+    height: 50px;
+    justify-content: space-between; /* Alinear el contenido a los extremos */
+}
+
+header.shrink a {
+    display: flex;
+    align-items: center;
+}
+
+header.shrink img {
+    width: 50px; /* Tamaño reducido del logo */
+    margin-right: 10px; /* Espacio entre el logo y el nombre */
+}
+
+header.shrink .logo-name {
+    display: inline-block;
+    position: static; /* Eliminar la posición absoluta */
+    top: auto;
+    left: auto;
+    margin: 0;
+}
+
+/* Hacer el logo más grande */
+header img {
+    width: 75px; /* Tamaño aumentado del logo */
+    transition: width 0.3s;
+}
+
+header.shrink img {
+    width: 50px; /* Tamaño reducido del logo */
+}
+
+/* Estilizar el nombre en rojo */
+.logo-name {
+    font-size: 1.5rem;
+    color: rgb(255, 96, 74);
+    font-weight: bold;
+    margin-left: 10px;
+    transition: all 0.3s ease; /* Transición para hacer el movimiento más fluido */
+    position: relative;
+}
+
+.logo-name.move-to-header {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    transition: all 0.3s ease;
+}
+
+.nav {
+    margin-left: auto; /* Mover las secciones interactuables a la derecha */
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav ul li {
+    margin: 0 1rem;
+}
+
+.nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+    color: #007BFF;
+}
+
+/* Secciones */
+section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section h1, section h2 {
+    color: #333;
+}
+
+footer {
+    background: #f8f8f8;
+    color: #333;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la imagen de perfil */
+#inicio img {
+    width: 150px; /* Tamaño reducido de la imagen */
+    float: right; /* Alinear a la derecha */
+    margin-left: 20px; /* Espacio entre el texto y la imagen */
+}
+
+/* Estilo para el nombre al lado de la imagen de perfil */
+#inicio .logo-name {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Ocultar el nombre en la barra de navegación inicialmente */
+header .logo-name {
+    display: none;
+}
+
+/* Mostrar el nombre en la barra de navegación cuando se hace scroll */
+header.shrink .logo-name {
+    display: inline-block;
+}
+
+/* From Uiverse.io by abrahamcalsin */
+button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #183153;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+}
+
+button:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #ffd401;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+}
+
+button:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+
+button span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover span {
+    color: #183153;
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
