@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enrique Sánchez-Migallón Ochoa - Personal Web - Portfolio - CV</title>
     <style>
-        /* Reset */
+        /* ---------- Configuración General ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        /* ---------- Botón "Volver al inicio" ---------- */
         #back-to-top {
             width: 50px;
             height: 50px;
@@ -28,9 +30,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s, transform 0.3s;
         }
-
-
-
+        
         #back-to-top > div,
         #back-to-top > svg {
         position: absolute;
@@ -110,7 +110,7 @@
             line-height: 1.6;
         }
 
-        /* Pantalla de carga */
+        /* ---------- Pantalla de Carga ---------- */
         #loader {
             position: fixed;
             top: 0;
@@ -142,7 +142,7 @@
             }
         }
 
-        /* Barra de navegación */
+        /* ---------- Barra de Navegación ---------- */
         header {
             background: #f8f8f8;
             color: #333;
@@ -150,7 +150,7 @@
             top: 0;
             width: 100%;
             display: flex;
-            justify-content: center; /* Centrar el contenido horizontalmente */
+            justify-content: center;
             align-items: center;
             padding: 0.5rem 2rem;
             z-index: 999;
@@ -166,7 +166,7 @@
         header.shrink {
             padding: 0.25rem 1rem;
             height: 50px;
-            justify-content: center; /* Centrar el contenido horizontalmente */
+            justify-content: center;
         }
 
         header.shrink a {
@@ -175,7 +175,7 @@
         }
 
         header.shrink img {
-            width: 50px; /* Tamaño reducido del logo */
+            width: 50px;
             margin-right: 10px; /* Espacio entre el logo y el nombre */
         }
 
@@ -189,48 +189,48 @@
 
         /* Hacer el logo más grande */
         header img {
-            width: 75px; /* Tamaño aumentado del logo */
+            width: 75px; 
             transition: width 0.3s;
         }
 
         header.shrink img {
-            width: 50px; /* Tamaño reducido del logo */
+            width: 50px;
         }
 
         /* Estilo para el nombre con degradado */
         .logo-name {
-            font-size: 3rem; /* Tamaño aumentado del texto */
+            font-size: 3rem;
             font-weight: bold;
-            margin-bottom: 20px; /* Espacio entre el nombre y el botón */
-            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+            margin-bottom: 20px;
+            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); 
             -webkit-background-clip: text;
-            color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+            color: transparent;
         }
 
         /* Estilo para el nombre en la barra de navegación */
         header .logo-name {
-            font-size: 2rem; /* Tamaño aumentado del texto en la barra de navegación */
-            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+            font-size: 2rem;
+            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); 
             -webkit-background-clip: text;
-            color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+            color: transparent;
             font-weight: bold;
             margin-left: 10px;
-            transition: all 0.3s ease; /* Transición para hacer el movimiento más fluido */
+            transition: all 0.3s ease;
             position: relative;
-            top: 7px; /* Mover el nombre un poco más abajo */
+            top: 7px;
         }
 
         .logo-name.move-to-header {
             position: absolute;
-            top: 20px; /* Ajustar la posición vertical */
+            top: 20px;
             left: 100px;
             transition: all 0.3s ease;
         }
 
         .nav {
-            margin-left: auto; /* Mover las secciones interactuables a la derecha */
+            margin-left: auto;
             display: flex;
-            justify-content: center; /* Centrar el contenido horizontalmente */
+            justify-content: center;
             align-items: center;
         }
 
@@ -255,7 +255,7 @@
             color: #007BFF;
         }
 
-        /* Secciones */
+        /* ---------- Secciones ---------- */
         section {
             min-height: 100vh;
             padding: 4rem 2rem;
@@ -284,16 +284,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: right; /* Alinear el texto a la derecha */
-            gap: 30px; /* Reducir el espacio entre la imagen y el contenido */
-            padding: 3rem 1rem; /* Reducir el padding */
+            text-align: right;
+            gap: 30px;
+            padding: 3rem 1rem;
         }
 
         /* Estilo para la imagen de perfil */
         #inicio img {
-            width: 300px; /* Reducir el tamaño de la imagen */
-            margin-left: 30px; /* Reducir el espacio entre el texto y la imagen */
-            border-radius: 15px; /* Bordes redondeados */
+            width: 300px;
+            margin-left: 30px;
+            border-radius: 15px;
         }
 
         /* Contenedor para la información del perfil */
@@ -301,26 +301,25 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-end; /* Alinear a la derecha */
+            align-items: flex-end;
         }
 
         /* Estilo para el nombre al lado de la imagen de perfil */
         #inicio .logo-name {
-            font-size: 2.5rem; /* Reducir el tamaño del texto */
-            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+            font-size: 2.5rem; 
+            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79));
             -webkit-background-clip: text;
-            color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+            color: transparent;
             font-weight: bold;
             margin-bottom: 20px; /* Espacio entre el nombre y el botón */
         }
 
-        /* Contenedor para los botones */
+        /* ---------- Botones - Estilos y Contenedores ---------- */
         .buttons-container {
             display: flex;
-            gap: 10px; /* Reducir el espacio entre los botones */
+            gap: 10px;
         }
 
-        /* Estilo para los botones */
         button {
             position: relative;
             display: flex;
@@ -355,9 +354,9 @@
             text-align: center;
             text-decoration: none;
             width: 100%;
-            padding: 15px 20px; /* Aumentar el padding */
+            padding: 15px 20px;
             color: #fff;
-            font-size: 1.2em; /* Aumentar el tamaño de la fuente */
+            font-size: 1.2em;
             font-weight: 700;
             letter-spacing: 0.3em;
             z-index: 20;
@@ -383,7 +382,7 @@
             }
         }
 
-        /* Media Queries para dispositivos móviles */
+        /* ---------- Media Queries - Cosas de la Version de Moviles/SmartPhones ---------- */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -422,33 +421,33 @@
 
             #inicio {
                 flex-direction: column;
-                text-align: center; /* Centrar el texto */
-                padding: 2rem 1rem; /* Reducir el padding */
+                text-align: center;
+                padding: 2rem 1rem;
             }
 
             #inicio img {
-                width: 200px; /* Reducir el tamaño de la imagen */
-                margin: 0 0 1rem 0; /* Ajustar el margen */
+                width: 200px;
+                margin: 0 0 1rem 0;
             }
 
             #inicio .logo-name {
-                font-size: 2rem; /* Reducir el tamaño del texto */
-                margin-bottom: 10px; /* Reducir el espacio entre el nombre y el botón */
+                font-size: 2rem;
+                margin-bottom: 10px;
             }
 
             .buttons-container {
                 flex-direction: column;
-                gap: 5px; /* Reducir el espacio entre los botones */
+                gap: 5px;
             }
 
             button span {
-                padding: 10px 15px; /* Reducir el padding */
-                font-size: 1em; /* Reducir el tamaño de la fuente */
+                padding: 10px 15px;
+                font-size: 1em;
             }
 
             /* Reducir el tamaño del nombre en la barra de navegación en móviles */
             header .logo-name {
-                font-size: 1rem; /* Tamaño reducido del texto en la barra de navegación */
+                font-size: 0.8rem;
             }
         }
 
@@ -487,7 +486,7 @@
             setTimeout(() => {
                 loader.style.opacity = "0";
                 setTimeout(() => loader.style.display = "none", 500); // Desaparece suavemente
-            }, 1000); // Duración de la pantalla de carga: 2000 ms (2 segundos)
+            }, 900);
         });
 
         // Actualizar el estado activo de la navegación al hacer scroll
@@ -535,6 +534,8 @@
         }
     </script>
 </head>
+
+<!-- Botón de volver arriba -->
 <button id="back-to-top" onclick="scrollToTop()">
     <svg
       stroke-width="2"
@@ -550,6 +551,7 @@
       ></path>
     </svg>
 </button>
+
 <body>
     <!-- Pantalla de carga -->
     <div id="loader">
@@ -559,13 +561,12 @@
     <!-- Barra de navegación -->
     <header>
         <div class="logo-container">
-            <!-- Envolviendo el logo con un enlace -->
             <a href="#inicio">
                 <img src="images/Logo_Sin_Fondo.png" alt="Logotipo">
             </a>
-            <span class="logo-name">Enrique Sánchez-Migallón Ochoa</span> <!-- Nombre en rojo -->
+            <span class="logo-name">Enrique Sánchez-Migallón Ochoa</span> 
         </div>
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Botón de menú hamburguesa -->
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
         <nav class="nav">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -579,7 +580,7 @@
     <!-- Secciones -->
     <section id="inicio">
         <div class="profile-info">
-            <span class="logo-name">Enrique Sánchez-<br>Migallón Ochoa</span> <!-- Nombre en rojo con salto de línea -->
+            <span class="logo-name">Enrique Sánchez-<br>Migallón Ochoa</span>
             <div class="buttons-container">
                 <button onclick="window.location.href='downloads/EnriqueSanchezMigallonOchoaCV.pdf'">
                     <span>Descargar CV</span>
@@ -604,7 +605,7 @@
         <h2>Contacto</h2>
     </section>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer>
         <p>&copy; 2024 Enrique Sánchez-Migallón. Todos los derechos reservados.</p>
     </footer>
