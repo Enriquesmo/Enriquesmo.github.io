@@ -32,15 +32,12 @@ window.addEventListener("scroll", () => {
     // Reducir el tamaño de la barra de navegación al hacer scroll
     const header = document.querySelector("header");
     const logoName = document.querySelector(".logo-name");
-    const inicioLogoName = document.querySelector("#inicio .logo-name");
 
     if (window.scrollY > 50) {
         header.classList.add("shrink");
         logoName.classList.add("move-to-header");
-        inicioLogoName.style.display = "none";
     } else {
         header.classList.remove("shrink");
         logoName.classList.remove("move-to-header");
-        inicioLogoName.style.display = "inline-block";
     }
 });

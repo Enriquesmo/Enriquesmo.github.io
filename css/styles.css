@@ -52,7 +52,7 @@ header {
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centrar el contenido horizontalmente */
     align-items: center;
     padding: 0.5rem 2rem;
     z-index: 999;
@@ -60,10 +60,15 @@ header {
     transition: padding 0.3s, height 0.3s;
 }
 
+header .logo-container {
+    display: flex;
+    align-items: center;
+}
+
 header.shrink {
     padding: 0.25rem 1rem;
     height: 50px;
-    justify-content: space-between; /* Alinear el contenido a los extremos */
+    justify-content: center; /* Centrar el contenido horizontalmente */
 }
 
 header.shrink a {
@@ -78,7 +83,7 @@ header.shrink img {
 
 header.shrink .logo-name {
     display: inline-block;
-    position: static; /* Eliminar la posición absoluta */
+    position: static;
     top: auto;
     left: auto;
     margin: 0;
@@ -94,25 +99,41 @@ header.shrink img {
     width: 50px; /* Tamaño reducido del logo */
 }
 
-/* Estilizar el nombre en rojo */
+/* Estilo para el nombre con degradado */
 .logo-name {
-    font-size: 1.5rem;
-    color: rgb(255, 96, 74);
+    font-size: 3rem; /* Tamaño aumentado del texto */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espacio entre el nombre y el botón */
+    background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+    -webkit-background-clip: text;
+    color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+}
+
+/* Estilo para el nombre en la barra de navegación */
+header .logo-name {
+    font-size: 2rem; /* Tamaño aumentado del texto en la barra de navegación */
+    background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+    -webkit-background-clip: text;
+    color: transparent; /* Hacer el texto transparente para mostrar el degradado */
     font-weight: bold;
     margin-left: 10px;
     transition: all 0.3s ease; /* Transición para hacer el movimiento más fluido */
     position: relative;
+    top: 7px; /* Mover el nombre un poco más abajo */
 }
 
 .logo-name.move-to-header {
     position: absolute;
-    top: 10px;
+    top: 20px; /* Ajustar la posición vertical */
     left: 100px;
     transition: all 0.3s ease;
 }
 
 .nav {
     margin-left: auto; /* Mover las secciones interactuables a la derecha */
+    display: flex;
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center;
 }
 
 .nav ul {
@@ -158,30 +179,48 @@ footer {
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Sección de inicio */
+#inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right; /* Alinear el texto a la derecha */
+    gap: 60px; /* Espacio entre la imagen y el contenido */
+    padding: 6rem 2rem; /* Aumentar el padding */
+}
+
 /* Estilo para la imagen de perfil */
 #inicio img {
-    width: 150px; /* Tamaño reducido de la imagen */
-    float: right; /* Alinear a la derecha */
-    margin-left: 20px; /* Espacio entre el texto y la imagen */
+    width: 500px; /* Tamaño aumentado de la imagen */
+    margin-left: 60px; /* Espacio aumentado entre el texto y la imagen */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+/* Contenedor para la información del perfil */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; /* Alinear a la derecha */
 }
 
 /* Estilo para el nombre al lado de la imagen de perfil */
 #inicio .logo-name {
-    display: inline-block;
-    margin-left: 10px;
+    font-size: 4rem; /* Tamaño aumentado del texto */
+    background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+    -webkit-background-clip: text;
+    color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+    font-weight: bold;
+    margin-bottom: 30px; /* Espacio entre el nombre y el botón */
 }
 
-/* Ocultar el nombre en la barra de navegación inicialmente */
-header .logo-name {
-    display: none;
+/* Contenedor para los botones */
+.buttons-container {
+    display: flex;
+    gap: 20px; /* Espacio entre los botones */
 }
 
-/* Mostrar el nombre en la barra de navegación cuando se hace scroll */
-header.shrink .logo-name {
-    display: inline-block;
-}
-
-/* From Uiverse.io by abrahamcalsin */
+/* Estilo para los botones */
 button {
     position: relative;
     display: flex;
@@ -216,9 +255,9 @@ button span {
     text-align: center;
     text-decoration: none;
     width: 100%;
-    padding: 18px 25px;
+    padding: 20px 30px; /* Aumentar el padding */
     color: #fff;
-    font-size: 1.125em;
+    font-size: 1.5em; /* Aumentar el tamaño de la fuente */
     font-weight: 700;
     letter-spacing: 0.3em;
     z-index: 20;

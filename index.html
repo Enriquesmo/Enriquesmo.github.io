@@ -15,11 +15,13 @@
 
     <!-- Barra de navegación -->
     <header>
-        <!-- Envolviendo el logo con un enlace -->
-        <a href="#inicio">
-            <img src="images/Logo_Sin_Fondo.png" alt="Logotipo">
-        </a>
-        <span class="logo-name">Enrique Sánchez-Migallón Ochoa</span> <!-- Nombre en rojo -->
+        <div class="logo-container">
+            <!-- Envolviendo el logo con un enlace -->
+            <a href="#inicio">
+                <img src="images/Logo_Sin_Fondo.png" alt="Logotipo">
+            </a>
+            <span class="logo-name">Enrique Sánchez-Migallón Ochoa</span> <!-- Nombre en rojo -->
+        </div>
         <nav class="nav">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -32,11 +34,18 @@
 
     <!-- Secciones -->
     <section id="inicio">
+        <div class="profile-info">
+            <span class="logo-name">Enrique Sánchez-<br>Migallón Ochoa</span> <!-- Nombre en rojo con salto de línea -->
+            <div class="buttons-container">
+                <button onclick="window.location.href='downloads/EnriqueSanchezMigallonOchoaCV.pdf'">
+                    <span>Descargar CV</span>
+                </button>
+                <button onclick="window.location.href='#contacto'">
+                    <span>Contacto</span>
+                </button>
+            </div>
+        </div>
         <img src="images/Foto_Perfil.jpg" alt="Foto_Perfil">
-        <span class="logo-name">Enrique Sánchez-Migallón Ochoa</span> <!-- Nombre en rojo -->
-        <button onclick="window.location.href='downloads/CV-EnriqueSanchez-MigallonOchoa.pdf'">
-            <span>Descargar CV</span>
-        </button>
     </section>
 
     <section id="proyectos">
