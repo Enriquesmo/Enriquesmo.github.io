@@ -4,8 +4,337 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Enrique Sánchez-Migallón</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/main.js" defer></script>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Pantalla de carga */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #loader .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f0f0f0;
+            border-top: 5px solid #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Barra de navegación */
+        header {
+            background: #f8f8f8;
+            color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Centrar el contenido horizontalmente */
+            align-items: center;
+            padding: 0.5rem 2rem;
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: padding 0.3s, height 0.3s;
+        }
+
+        header .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        header.shrink {
+            padding: 0.25rem 1rem;
+            height: 50px;
+            justify-content: center; /* Centrar el contenido horizontalmente */
+        }
+
+        header.shrink a {
+            display: flex;
+            align-items: center;
+        }
+
+        header.shrink img {
+            width: 50px; /* Tamaño reducido del logo */
+            margin-right: 10px; /* Espacio entre el logo y el nombre */
+        }
+
+        header.shrink .logo-name {
+            display: inline-block;
+            position: static;
+            top: auto;
+            left: auto;
+            margin: 0;
+        }
+
+        /* Hacer el logo más grande */
+        header img {
+            width: 75px; /* Tamaño aumentado del logo */
+            transition: width 0.3s;
+        }
+
+        header.shrink img {
+            width: 50px; /* Tamaño reducido del logo */
+        }
+
+        /* Estilo para el nombre con degradado */
+        .logo-name {
+            font-size: 3rem; /* Tamaño aumentado del texto */
+            font-weight: bold;
+            margin-bottom: 20px; /* Espacio entre el nombre y el botón */
+            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+            -webkit-background-clip: text;
+            color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+        }
+
+        /* Estilo para el nombre en la barra de navegación */
+        header .logo-name {
+            font-size: 2rem; /* Tamaño aumentado del texto en la barra de navegación */
+            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+            -webkit-background-clip: text;
+            color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+            font-weight: bold;
+            margin-left: 10px;
+            transition: all 0.3s ease; /* Transición para hacer el movimiento más fluido */
+            position: relative;
+            top: 7px; /* Mover el nombre un poco más abajo */
+        }
+
+        .logo-name.move-to-header {
+            position: absolute;
+            top: 20px; /* Ajustar la posición vertical */
+            left: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            margin-left: auto; /* Mover las secciones interactuables a la derecha */
+            display: flex;
+            justify-content: center; /* Centrar el contenido horizontalmente */
+            align-items: center;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav ul li {
+            margin: 0 1rem;
+        }
+
+        .nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav ul li a:hover,
+        .nav ul li a.active {
+            color: #007BFF;
+        }
+
+        /* Secciones */
+        section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('images/Foto_Fondo.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        section h1, section h2 {
+            color: #333;
+        }
+
+        footer {
+            background: #f8f8f8;
+            color: #333;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sección de inicio */
+        #inicio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: right; /* Alinear el texto a la derecha */
+            gap: 60px; /* Espacio entre la imagen y el contenido */
+            padding: 6rem 2rem; /* Aumentar el padding */
+        }
+
+        /* Estilo para la imagen de perfil */
+        #inicio img {
+            width: 500px; /* Tamaño aumentado de la imagen */
+            margin-left: 60px; /* Espacio aumentado entre el texto y la imagen */
+            border-radius: 15px; /* Bordes redondeados */
+        }
+
+        /* Contenedor para la información del perfil */
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end; /* Alinear a la derecha */
+        }
+
+        /* Estilo para el nombre al lado de la imagen de perfil */
+        #inicio .logo-name {
+            font-size: 4rem; /* Tamaño aumentado del texto */
+            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
+            -webkit-background-clip: text;
+            color: transparent; /* Hacer el texto transparente para mostrar el degradado */
+            font-weight: bold;
+            margin-bottom: 30px; /* Espacio entre el nombre y el botón */
+        }
+
+        /* Contenedor para los botones */
+        .buttons-container {
+            display: flex;
+            gap: 20px; /* Espacio entre los botones */
+        }
+
+        /* Estilo para los botones */
+        button {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            background: #183153;
+            font-family: "Montserrat", sans-serif;
+            box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:after {
+            content: " ";
+            width: 0%;
+            height: 100%;
+            background: #ffd401;
+            position: absolute;
+            transition: all 0.4s ease-in-out;
+            right: 0;
+        }
+
+        button:hover::after {
+            right: auto;
+            left: 0;
+            width: 100%;
+        }
+
+        button span {
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            padding: 20px 30px; /* Aumentar el padding */
+            color: #fff;
+            font-size: 1.5em; /* Aumentar el tamaño de la fuente */
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            z-index: 20;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover span {
+            color: #183153;
+            animation: scaleUp 0.3s ease-in-out;
+        }
+
+        @keyframes scaleUp {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.95);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script>
+        // Eliminar el loader después de 2 segundos
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                setTimeout(() => loader.style.display = "none", 500); // Desaparece suavemente
+            }, 1000); // Duración de la pantalla de carga: 2000 ms (2 segundos)
+        });
+
+        // Actualizar el estado activo de la navegación al hacer scroll
+        window.addEventListener("scroll", () => {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav ul li a");
+
+            let currentSection = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (pageYOffset >= sectionTop - 50 && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(currentSection)) {
+                    link.classList.add("active");
+                }
+            });
+
+            // Reducir el tamaño de la barra de navegación al hacer scroll
+            const header = document.querySelector("header");
+            const logoName = document.querySelector(".logo-name");
+
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+                logoName.classList.add("move-to-header");
+            } else {
+                header.classList.remove("shrink");
+                logoName.classList.remove("move-to-header");
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- Pantalla de carga -->
