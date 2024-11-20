@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Enrique Sánchez-Migallón</title>
+    <title>Enrique Sánchez-Migallón Ochoa - Personal Web - Portfolio - CV</title>
     <style>
         /* Reset */
         * {
@@ -292,17 +292,38 @@
 
         /* Media Queries para dispositivos móviles */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 1rem;
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 2rem;
+                color: #333;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
             }
 
-            .nav ul {
+            .nav {
+                display: none; /* Ocultar la navegación por defecto en móviles */
+            }
+
+            .nav.mobile-nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: #f8f8f8;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav.mobile-nav ul {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .nav ul li {
+            .nav.mobile-nav ul li {
                 margin: 0.5rem 0;
             }
 
@@ -332,7 +353,35 @@
                 font-size: 1em; /* Reducir el tamaño de la fuente */
             }
         }
+
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none; /* Ocultar el botón de menú hamburguesa en pantallas grandes */
+            }
+
+            .nav {
+                display: flex; /* Mostrar la navegación por defecto en pantallas grandes */
+            }
+        }
     </style>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Enrique Sánchez-Migallón Ochoa",
+            "url": "https://enriquesmo.github.io",
+            "image": "https://enriquesmo.github.io/images/Foto_Perfil.jpg",
+            "sameAs": [
+                "https://www.linkedin.com/in/enriquesmo",
+                "https://github.com/enriquesmo"
+            ],
+            "jobTitle": "Software Engineer",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Mi Empresa"
+            }
+        }
+    </script>
     <script>
         // Eliminar el loader después de 2 segundos
         window.addEventListener("load", () => {
@@ -377,6 +426,12 @@
                 logoName.classList.remove("move-to-header");
             }
         });
+
+        // Mostrar/ocultar el menú de navegación en móviles
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            nav.classList.toggle('mobile-nav');
+        }
     </script>
 </head>
 <body>
@@ -394,6 +449,7 @@
             </a>
             <span class="logo-name">Enrique Sánchez-Migallón Ochoa</span> <!-- Nombre en rojo -->
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Botón de menú hamburguesa -->
         <nav class="nav">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
