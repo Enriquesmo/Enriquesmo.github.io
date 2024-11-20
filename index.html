@@ -170,7 +170,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: url('images/Foto_Fondo.png') no-repeat center center fixed;
+            background: url('images/foto_fondo.png') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -192,14 +192,14 @@
             justify-content: center;
             align-items: center;
             text-align: right; /* Alinear el texto a la derecha */
-            gap: 60px; /* Espacio entre la imagen y el contenido */
-            padding: 6rem 2rem; /* Aumentar el padding */
+            gap: 30px; /* Reducir el espacio entre la imagen y el contenido */
+            padding: 3rem 1rem; /* Reducir el padding */
         }
 
         /* Estilo para la imagen de perfil */
         #inicio img {
-            width: 500px; /* Tamaño aumentado de la imagen */
-            margin-left: 60px; /* Espacio aumentado entre el texto y la imagen */
+            width: 300px; /* Reducir el tamaño de la imagen */
+            margin-left: 30px; /* Reducir el espacio entre el texto y la imagen */
             border-radius: 15px; /* Bordes redondeados */
         }
 
@@ -213,18 +213,18 @@
 
         /* Estilo para el nombre al lado de la imagen de perfil */
         #inicio .logo-name {
-            font-size: 4rem; /* Tamaño aumentado del texto */
+            font-size: 2.5rem; /* Reducir el tamaño del texto */
             background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); /* Degradado de rojo a gris */
             -webkit-background-clip: text;
             color: transparent; /* Hacer el texto transparente para mostrar el degradado */
             font-weight: bold;
-            margin-bottom: 30px; /* Espacio entre el nombre y el botón */
+            margin-bottom: 20px; /* Espacio entre el nombre y el botón */
         }
 
         /* Contenedor para los botones */
         .buttons-container {
             display: flex;
-            gap: 20px; /* Espacio entre los botones */
+            gap: 10px; /* Reducir el espacio entre los botones */
         }
 
         /* Estilo para los botones */
@@ -262,9 +262,9 @@
             text-align: center;
             text-decoration: none;
             width: 100%;
-            padding: 20px 30px; /* Aumentar el padding */
+            padding: 15px 20px; /* Aumentar el padding */
             color: #fff;
-            font-size: 1.5em; /* Aumentar el tamaño de la fuente */
+            font-size: 1.2em; /* Aumentar el tamaño de la fuente */
             font-weight: 700;
             letter-spacing: 0.3em;
             z-index: 20;
@@ -287,6 +287,49 @@
 
             100% {
                 transform: scale(1);
+            }
+        }
+
+        /* Media Queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            #inicio {
+                flex-direction: column;
+                text-align: center; /* Centrar el texto */
+                padding: 2rem 1rem; /* Reducir el padding */
+            }
+
+            #inicio img {
+                width: 200px; /* Reducir el tamaño de la imagen */
+                margin: 0 0 1rem 0; /* Ajustar el margen */
+            }
+
+            #inicio .logo-name {
+                font-size: 2rem; /* Reducir el tamaño del texto */
+                margin-bottom: 10px; /* Reducir el espacio entre el nombre y el botón */
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                gap: 5px; /* Reducir el espacio entre los botones */
+            }
+
+            button span {
+                padding: 10px 15px; /* Reducir el padding */
+                font-size: 1em; /* Reducir el tamaño de la fuente */
             }
         }
     </style>
