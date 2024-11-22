@@ -4,563 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enrique Sánchez-Migallón Ochoa - Personal Web - Portfolio - CV</title>
-    <style>
-        /* ---------- Configuración General ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="styles.css">
 
-        /* ---------- Botón "Volver al inicio" ---------- */
-        #back-to-top {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #007BFF;
-            color: #fff;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        
-        #back-to-top > div,
-        #back-to-top > svg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        }
-
-        #back-to-top:before {
-        content: "";
-        position: absolute;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        transform: scaleX(0);
-        transform-origin: bottom right;
-        background: currentColor;
-        transition: transform 0.25s ease-out;
-        }
-
-        #back-to-top:hover {
-        background-color: #0056b3;
-        transform: translateY(-5px);
-        }
-
-        #back-to-top .clone > *,
-        #back-to-top .text > * {
-        opacity: 1;
-        font-size: 1.3rem;
-        transition: 0.2s;
-        margin-left: 4px;
-        }
-
-        #back-to-top .clone > * {
-        transform: translateY(60px);
-        }
-
-        #back-to-top:hover .clone > * {
-        opacity: 1;
-        transform: translateY(0px);
-        transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-        }
-
-        #back-to-top:hover .text > * {
-        opacity: 1;
-        transform: translateY(-60px);
-        transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-        }
-
-        #back-to-top:hover .clone > :nth-child(1) {
-        transition-delay: 0.15s;
-        }
-
-        #back-to-top:hover .clone > :nth-child(2) {
-        transition-delay: 0.2s;
-        }
-
-        #back-to-top:hover .clone > :nth-child(3) {
-        transition-delay: 0.25s;
-        }
-
-        #back-to-top:hover .clone > :nth-child(4) {
-        transition-delay: 0.3s;
-        }
-
-        #back-to-top svg {
-        width: 24px;
-        height: 24px;
-        }
-
-        #back-to-top:hover svg {
-        transform: translateY(0%) rotate(0deg);
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        /* ---------- Pantalla de Carga ---------- */
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        #loader .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f0f0f0;
-            border-top: 5px solid #333;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ---------- Barra de Navegación ---------- */
-        header {
-            background: #f8f8f8;
-            color: #333;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0.5rem 2rem;
-            z-index: 999;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: padding 0.3s, height 0.3s;
-        }
-
-        header .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        header.shrink {
-            padding: 0.25rem 1rem;
-            height: 50px;
-            justify-content: center;
-        }
-
-        header.shrink a {
-            display: flex;
-            align-items: center;
-        }
-
-        header.shrink img {
-            width: 50px;
-            margin-right: 10px; /* Espacio entre el logo y el nombre */
-        }
-
-        header.shrink .logo-name {
-            display: inline-block;
-            position: static;
-            top: auto;
-            left: auto;
-            margin: 0;
-        }
-
-        /* Hacer el logo más grande */
-        header img {
-            width: 75px; 
-            transition: width 0.3s;
-        }
-
-        header.shrink img {
-            width: 50px;
-        }
-
-        /* Estilo para el nombre con degradado */
-        .logo-name {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); 
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        /* Estilo para el nombre en la barra de navegación */
-        header .logo-name {
-            font-size: 2rem;
-            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79)); 
-            -webkit-background-clip: text;
-            color: transparent;
-            font-weight: bold;
-            margin-left: 10px;
-            transition: all 0.3s ease;
-            position: relative;
-            top: 7px;
-        }
-
-        .logo-name.move-to-header {
-            position: absolute;
-            top: 20px;
-            left: 100px;
-            transition: all 0.3s ease;
-        }
-
-        .nav {
-            margin-left: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav ul li {
-            margin: 0 1rem;
-        }
-
-        .nav ul li a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .nav ul li a:hover,
-        .nav ul li a.active {
-            color: #007BFF;
-        }
-
-        /* ---------- Seccion de Inicio ---------- */
-        section {
-            min-height: 100vh;
-            padding: 4rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: url('images/foto_fondo.png') no-repeat center center fixed;
-            background-size: cover;
-        }
-
-        section h1, section h2 {
-            color: #333;
-        }
-
-        footer {
-            background: #f8f8f8;
-            color: #333;
-            text-align: center;
-            padding: 1rem 0;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Sección de inicio */
-        #inicio {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: right;
-            gap: 30px;
-            padding: 3rem 1rem;
-        }
-
-        /* Estilo para la imagen de perfil */
-        #inicio img {
-            width: 300px;
-            margin-left: 30px;
-            border-radius: 15px;
-        }
-
-        /* Contenedor para la información del perfil */
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-        }
-
-        /* Estilo para el nombre al lado de la imagen de perfil */
-        #inicio .logo-name {
-            font-size: 2.5rem; 
-            background: linear-gradient(to right, rgb(255, 96, 74), rgb(62, 76, 79));
-            -webkit-background-clip: text;
-            color: transparent;
-            font-weight: bold;
-            margin-bottom: 20px; /* Espacio entre el nombre y el botón */
-        }
-
-        /* ---------- Seccion de Contacto ---------- */
-        #contacto {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Cambiado a center para centrar la sección */
-        padding: 2rem;
-        background-color: #f8f8f8;
-        }
-
-        #contacto h2 {
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            margin-bottom: 1rem;
-            text-align: center; /* Añadido para centrar el texto */
-        }
-
-        .contact-info p {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info .email {
-            font-size: 1.2rem;
-            font-weight: bold;
-            background: linear-gradient(to right, #87CEEB, #00BFFF);
-            -webkit-background-clip: text;
-            color: transparent;
-            cursor: pointer; /* Añadido para indicar que es interactivo */
-        }
-
-        .card {
-            display: flex;
-            gap: 20px;
-        }
-
-        /* for all social containers */
-        .socialContainer {
-            width: 52px;
-            height: 52px;
-            background-color: rgb(44, 44, 44);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            transition-duration: 0.3s;
-        }
-
-        /* linkdin */
-        .containerThree:hover {
-            background-color: #0072b1;
-            transition-duration: 0.3s;
-            transform: scale(1.5);
-            border-radius: 15px;
-        }
-
-        /* Gmail */
-        .containerFive:hover {
-            background-color: #D44638;
-            transition-duration: 0.3s;
-            transform: scale(1.5);
-            border-radius: 15px;
-        }
-
-        /* GitHub */
-        .containerSix:hover {
-            background-color: #333;
-            transition-duration: 0.3s;
-            transform: scale(1.5);
-            border-radius: 15px;
-        }
-
-        .socialContainer:active {
-            transform: scale(0.9);
-            transition-duration: 0.3s;
-        }
-
-        .socialSvg {
-            width: 17px;
-        }
-
-        .socialSvg path {
-            fill: rgb(255, 255, 255);
-        }
-
-        .socialContainer:hover .socialSvg {
-            animation: slide-in-top 0.3s both;
-        }
-
-        @keyframes slide-in-top {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* ---------- Botones - Estilos y Contenedores ---------- */
-        .buttons-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        button {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-            background: #183153;
-            font-family: "Montserrat", sans-serif;
-            box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            cursor: pointer;
-            border: none;
-        }
-
-        button:after {
-            content: " ";
-            width: 0%;
-            height: 100%;
-            background: #ffd401;
-            position: absolute;
-            transition: all 0.4s ease-in-out;
-            right: 0;
-        }
-
-        button:hover::after {
-            right: auto;
-            left: 0;
-            width: 100%;
-        }
-
-        button span {
-            text-align: center;
-            text-decoration: none;
-            width: 100%;
-            padding: 15px 20px;
-            color: #fff;
-            font-size: 1.2em;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            z-index: 20;
-            transition: all 0.3s ease-in-out;
-        }
-
-        button:hover span {
-            color: #183153;
-            animation: scaleUp 0.3s ease-in-out;
-        }
-
-        @keyframes scaleUp {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(0.95);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* ---------- Media Queries - Cosas de la Version de Moviles/SmartPhones ---------- */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                cursor: pointer;
-                font-size: 2rem;
-                color: #333;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-            }
-
-            .nav {
-                display: none; /* Ocultar la navegación por defecto en móviles */
-            }
-
-            .nav.mobile-nav {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background: #f8f8f8;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav.mobile-nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .nav.mobile-nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            #inicio {
-                flex-direction: column;
-                text-align: center;
-                padding: 2rem 1rem;
-            }
-
-            #inicio img {
-                width: 200px;
-                margin: 0 0 1rem 0;
-            }
-
-            #inicio .logo-name {
-                font-size: 2rem;
-                margin-bottom: 10px;
-            }
-
-            .buttons-container {
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            button span {
-                padding: 10px 15px;
-                font-size: 1em;
-            }
-
-            /* Reducir el tamaño del nombre en la barra de navegación en móviles */
-            header .logo-name {
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .menu-toggle {
-                display: none; /* Ocultar el botón de menú hamburguesa en pantallas grandes */
-            }
-
-            .nav {
-                display: flex; /* Mostrar la navegación por defecto en pantallas grandes */
-            }
-        }
-    </style>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -579,21 +24,22 @@
             }
         }
     </script>
-    <script>
-        function copyEmail() {
-            const email = "sanchezmigallonochoaenrique@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                alert("Email copiado al portapapeles");
-            });
-        }
-    </script>
+
     <script>
         // Eliminar el loader después de 2 segundos
         window.addEventListener("load", () => {
             const loader = document.getElementById("loader");
+            const body = document.querySelector("body");
+            const fadeInElements = document.querySelectorAll(".fade-in-element");
             setTimeout(() => {
                 loader.style.opacity = "0";
-                setTimeout(() => loader.style.display = "none", 500); // Desaparece suavemente
+                setTimeout(() => {
+                    loader.style.display = "none";
+                    body.classList.add("visible"); // Agrega la clase visible para la transición suave
+                    fadeInElements.forEach(element => {
+                        element.classList.add("visible");
+                    });
+                }, 50); // Desaparece suavemente
             }, 900);
         });
 
@@ -641,6 +87,21 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
+
+    <script>
+        function copyEmail(button) {
+            const email = "sanchezmigallonochoaenrique@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const buttonText = button.querySelector('.button-text');
+                buttonText.textContent = "¡Email copiado al Portapapeles!";
+                button.classList.add("copied");
+                setTimeout(() => {
+                    buttonText.textContent = email;
+                    button.classList.remove("copied");
+                }, 2000);
+            });
+        }
+    </script>
 </head>
 
 <!-- Botón de volver arriba -->
@@ -659,7 +120,6 @@
       ></path>
     </svg>
 </button>
-
 <body>
     <!-- Pantalla de carga -->
     <div id="loader">
@@ -687,10 +147,10 @@
 
     <!-- Secciones -->
     <section id="inicio">
-        <div class="profile-info">
+        <div class="profile-info fade-in-element">
             <span class="logo-name">Enrique Sánchez-<br>Migallón Ochoa</span>
             <div class="buttons-container">
-                <button onclick="window.location.href='downloads/EnriqueSanchezMigallonOchoaCV.pdf'">
+                <button onclick="window.location.href='downloads/EnriqueSanchezMigallonOchoaCV-CorreoUniversidad.pdf'">
                     <span>Descargar CV</span>
                 </button>
                 <button onclick="window.location.href='#contacto'">
@@ -698,7 +158,7 @@
                 </button>
             </div>
         </div>
-        <img src="images/Foto_Perfil.jpg" alt="Foto_Perfil">
+        <img src="images/Foto_Perfil.jpg" alt="Foto_Perfil" class="fade-in-element">
     </section>
 
     <section id="proyectos">
@@ -713,7 +173,12 @@
         <h2>Contacto</h2>
         <div class="contact-info">
             <p>Estoy interesado en trabajar conjuntamente en proyectos interesantes. Puedes contactarme a través de mi email:</p>
-            <p class="email" onclick="copyEmail()">sanchezmigallonochoaenrique@gmail.com</p>
+            <button class="email-button" onclick="copyEmail(this)">
+                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path d="M19 21H9c-1.1 0-2-.9-2-2V7H5v12c0 1.1.9 2 2 2h12v-2zM15 3H7c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H7V5h8v12z"/>
+                </svg>
+                <span class="button-text">sanchezmigallonochoaenrique@gmail.com</span>
+            </button>
         </div>
         <div class="card">
             <a href="https://www.linkedin.com/in/enrique-sánchez-migallón-ochoa-934380314/" class="socialContainer containerThree">
@@ -740,5 +205,25 @@
     <footer>
         <p>&copy; 2024 Enrique Sánchez-Migallón. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+    
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+    
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
