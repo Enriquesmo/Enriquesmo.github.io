@@ -148,6 +148,20 @@
             });
         }
     </script>
+    <script>
+        // Configuración de Slick Carousel
+        $(document).ready(function(){
+            $('.carousel').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                arrows: true
+            });
+        });
+    </script>
 </head>
 
 <!-- Botón de volver arriba -->
@@ -167,19 +181,19 @@
     </svg>
 </button>
 <div class="card social-buttons">
-    <a href="https://www.linkedin.com/in/enrique-sánchez-migallón-ochoa-934380314/" class="socialContainer containerThree">
+    <a href="https://www.linkedin.com/in/enrique-sánchez-migallón-ochoa-934380314/" class="socialContainer containerThree linkedin">
         <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
             <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
         </svg>
     </a>
 
-    <a href="mailto:sanchezmigallonochoaenrique@gmail.com" class="socialContainer containerFive">
+    <a href="mailto:sanchezmigallonochoaenrique@gmail.com" class="socialContainer containerFive email">
         <svg class="socialSvg gmailSvg" viewBox="0 0 24 24">
             <path d="M12 12.713l-11.99-8.713h23.98l-11.99 8.713zm-12-10.713v20h24v-20h-24z"></path>
         </svg>
     </a>
 
-    <a href="https://github.com/Enriquesmo" class="socialContainer containerSix">
+    <a href="https://github.com/Enriquesmo" class="socialContainer containerSix github">
         <svg class="socialSvg githubSvg" viewBox="0 0 16 16">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
         </svg>
@@ -230,31 +244,99 @@
 
     <section id="conoceme">
         <div class="section-container">
-            <h2>Conóceme</h2>
+            <h2 class="section-title">Conóceme</h2>
+            <div class="about-me">
+                <img src="images/Foto_Perfil.jpg" alt="Foto de Enrique" class="large-photo fade-in-element">
+                <p>Soy Enrique Sánchez-Migallón Ochoa, un apasionado ingeniero de software con experiencia en desarrollo web y móvil. Me encanta aprender nuevas tecnologías y aplicar mis conocimientos para resolver problemas complejos.</p>
+            </div>
+            <div class="interests">
+                <h3 class="section-subtitle">Mis Intereses</h3>
+                <div class="interests-grid">
+                    <div class="interest">
+                        <img src="images/characteristic1.jpg" alt="Interés 1">
+                        <p>Proactivo</p>
+                    </div>
+                    <div class="interest">
+                        <img src="images/characteristic2.jpg" alt="Interés 2">
+                        <p>Proactivo</p>
+                    </div>
+                    <div class="interest">
+                        <img src="images/characteristic3.jpg" alt="Interés 3">
+                        <p>Proactivo</p>
+                    </div>
+                    <div class="interest">
+                        <img src="images/characteristic4.jpg" alt="Interés 4">
+                        <p>Proactivo</p>
+                    </div>
+                </div>
+                <div class="interests-grid">
+                    <div class="interest">
+                        <img src="images/characteristic5.jpg" alt="Interés 5">
+                        <p>Proactivo</p>
+                    </div>
+                    <div class="interest">
+                        <img src="images/characteristic6.jpg" alt="Interés 6">
+                        <p>Proactivo</p>
+                    </div>
+                    <div class="interest">
+                        <img src="images/characteristic7.jpg" alt="Interés 7">
+                        <p>Proactivo</p>
+                    </div>
+                    <div class="interest">
+                        <img src="images/characteristic8.jpg" alt="Interés 8">
+                        <p>Proactivo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="inspirational-quotes">
+                <h3 class="section-subtitle">Frases que me inspiran</h3>
+                <div class="carousel">
+                    <div class="quote">
+                        <img src="images/person1.jpg" alt="Persona 1">
+                        <p>"La vida es 10% lo que te ocurre y 90% cómo reaccionas a ello." - Charles R. Swindoll</p>
+                    </div>
+                    <div class="quote">
+                        <img src="images/person2.jpg" alt="Persona 2">
+                        <p>"El único modo de hacer un gran trabajo es amar lo que haces." - Steve Jobs</p>
+                    </div>
+                    <div class="quote">
+                        <img src="images/person3.jpg" alt="Persona 3">
+                        <p>"El éxito es la suma de pequeños esfuerzos repetidos día tras día." - Robert Collier</p>
+                    </div>
+                    <div class="quote">
+                        <img src="images/person4.jpg" alt="Persona 4">
+                        <p>"No cuentes los días, haz que los días cuenten." - Muhammad Ali</p>
+                    </div>
+                    <div class="quote">
+                        <img src="images/person5.jpg" alt="Persona 5">
+                        <p>"La mejor manera de predecir el futuro es crearlo." - Peter Drucker</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="formacion">
         <div class="section-container">
-            <h2>Formación</h2>
+            <h2 class="section-title">Formación</h2>
         </div>
     </section>
 
     <section id="habilidades">
         <div class="section-container">
-            <h2>Habilidades</h2>
+            <h2 class="section-title">Habilidades</h2>
         </div>
     </section>
 
     <section id="portfolio">
         <div class="section-container">
-            <h2>Portfolio</h2>
+            <h2 class="section-title">PortFolio</h2>
         </div>
     </section>
     
     <section id="contacto">
         <div class="section-container">
-            <h2>Contacto</h2>
+            <h2 class="section-title">Contacto</h2>
             <div class="contact-info">
                 <p>Estoy interesado en trabajar conjuntamente en proyectos interesantes. Puedes contactarme a través de mi email:</p>
                 <button class="email-button" onclick="copyEmail(this)">
