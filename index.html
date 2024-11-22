@@ -26,7 +26,6 @@
     </script>
 
     <script>
-        // Eliminar el loader después de 2 segundos
         window.addEventListener("load", () => {
             const loader = document.getElementById("loader");
             const body = document.querySelector("body");
@@ -42,33 +41,34 @@
                 }, 50); // Desaparece suavemente
             }, 900);
         });
-
-        // Actualizar el estado activo de la navegación al hacer scroll
+    
         window.addEventListener("scroll", () => {
             const sections = document.querySelectorAll("section");
             const navLinks = document.querySelectorAll(".nav ul li a");
-
+            const socialButtons = document.querySelector(".card.social-buttons");
+            const backToTopButton = document.getElementById("back-to-top");
+    
             let currentSection = "";
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
-
+    
                 if (pageYOffset >= sectionTop - 50 && pageYOffset < sectionTop + sectionHeight) {
                     currentSection = section.getAttribute("id");
                 }
             });
-
+    
             navLinks.forEach(link => {
                 link.classList.remove("active");
                 if (link.getAttribute("href").includes(currentSection)) {
                     link.classList.add("active");
                 }
             });
-
+    
             // Reducir el tamaño de la barra de navegación al hacer scroll
             const header = document.querySelector("header");
             const logoName = document.querySelector(".logo-name");
-
+    
             if (window.scrollY > 50) {
                 header.classList.add("shrink");
                 logoName.classList.add("move-to-header");
@@ -76,25 +76,37 @@
                 header.classList.remove("shrink");
                 logoName.classList.remove("move-to-header");
             }
+    
+            // Ocultar social buttons en la sección de contacto
+            if (currentSection === "contacto") {
+                socialButtons.classList.add("hidden");
+            } else {
+                socialButtons.classList.remove("hidden");
+            }
+    
+            // Mostrar/ocultar back-to-top en función de la sección actual
+            if (currentSection === "inicio") {
+                backToTopButton.classList.remove("visible");
+            } else {
+                backToTopButton.classList.add("visible");
+            }
         });
-
-        // Mostrar/ocultar el menú de navegación en móviles
+    
         function toggleMenu() {
             const nav = document.querySelector('.nav');
             nav.classList.toggle('mobile-nav');
         }
-
+    
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Navegación suave para los enlaces de la barra de navegación y el botón de contacto
+    
         document.addEventListener("DOMContentLoaded", () => {
             const navLinks = document.querySelectorAll(".nav ul li a");
             const contactButton = document.querySelector(".buttons-container button:nth-child(2)");
             const logoContainer = document.querySelector(".logo-container a");
             const logoName = document.querySelector(".logo-name");
-
+    
             navLinks.forEach(link => {
                 link.addEventListener("click", (event) => {
                     event.preventDefault();
@@ -103,26 +115,26 @@
                     targetSection.scrollIntoView({ behavior: 'smooth' });
                 });
             });
-
+    
             contactButton.addEventListener("click", (event) => {
                 event.preventDefault();
                 const targetSection = document.getElementById("contacto");
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             });
-
+    
             logoContainer.addEventListener("click", (event) => {
                 event.preventDefault();
                 const targetSection = document.getElementById("inicio");
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             });
-
+    
             logoName.addEventListener("click", (event) => {
                 event.preventDefault();
                 const targetSection = document.getElementById("inicio");
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             });
         });
-
+    
         function copyEmail(button) {
             const email = "sanchezmigallonochoaenrique@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
@@ -154,6 +166,25 @@
       ></path>
     </svg>
 </button>
+<div class="card social-buttons">
+    <a href="https://www.linkedin.com/in/enrique-sánchez-migallón-ochoa-934380314/" class="socialContainer containerThree">
+        <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
+        </svg>
+    </a>
+
+    <a href="mailto:sanchezmigallonochoaenrique@gmail.com" class="socialContainer containerFive">
+        <svg class="socialSvg gmailSvg" viewBox="0 0 24 24">
+            <path d="M12 12.713l-11.99-8.713h23.98l-11.99 8.713zm-12-10.713v20h24v-20h-24z"></path>
+        </svg>
+    </a>
+
+    <a href="https://github.com/Enriquesmo" class="socialContainer containerSix">
+        <svg class="socialSvg githubSvg" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+    </a>
+</div>
 <body>
     <!-- Pantalla de carga -->
     <div id="loader">

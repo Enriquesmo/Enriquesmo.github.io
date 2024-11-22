@@ -5,7 +5,10 @@
     box-sizing: border-box;
 }
 
-
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
 
 /* ---------- Botón "Volver al inicio" ---------- */
 #back-to-top {
@@ -23,86 +26,64 @@
     cursor: pointer;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
+    transition: opacity 0.5s ease, visibility 0.5s ease, background-color 0.3s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
 }
 
-#back-to-top > div,
-#back-to-top > svg {
-position: absolute;
-width: 100%;
-height: 100%;
-display: flex;
-}
-
-#back-to-top:before {
-content: "";
-position: absolute;
-height: 2px;
-bottom: 0;
-left: 0;
-width: 100%;
-transform: scaleX(0);
-transform-origin: bottom right;
-background: currentColor;
-transition: transform 0.25s ease-out;
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 #back-to-top:hover {
-background-color: #0056b3;
-transform: translateY(-5px);
-}
-
-#back-to-top .clone > *,
-#back-to-top .text > * {
-opacity: 1;
-font-size: 1.3rem;
-transition: 0.2s;
-margin-left: 4px;
-}
-
-#back-to-top .clone > * {
-transform: translateY(60px);
-}
-
-#back-to-top:hover .clone > * {
-opacity: 1;
-transform: translateY(0px);
-transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
-
-#back-to-top:hover .text > * {
-opacity: 1;
-transform: translateY(-60px);
-transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
-
-#back-to-top:hover .clone > :nth-child(1) {
-transition-delay: 0.15s;
-}
-
-#back-to-top:hover .clone > :nth-child(2) {
-transition-delay: 0.2s;
-}
-
-#back-to-top:hover .clone > :nth-child(3) {
-transition-delay: 0.25s;
-}
-
-#back-to-top:hover .clone > :nth-child(4) {
-transition-delay: 0.3s;
+    background-color: #0056b3;
+    transform: translateY(-5px);
 }
 
 #back-to-top svg {
-width: 24px;
-height: 24px;
+    width: 24px;
+    height: 24px;
 }
 
-#back-to-top:hover svg {
-transform: translateY(0%) rotate(0deg);
+/* ---------- Botones sociales abajo a la izquierda ---------- */
+.card.social-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 1;
+    visibility: visible;
 }
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+
+.card.social-buttons.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.social-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.social-buttons a:hover {
+    background-color: #fc0000;
+}
+
+.social-buttons svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* ---------- Pantalla de Carga ---------- */
@@ -291,7 +272,6 @@ header .logo-name {
     transform: translateY(0);
 }
 
-
 /* ---------- Seccion de Inicio ---------- */
 section {
     min-height: 100vh;
@@ -353,11 +333,11 @@ footer {
 
 /* ---------- Seccion de Contacto ---------- */
 #contacto {
-display: flex;
-flex-direction: column;
-align-items: center; /* Cambiado a center para centrar la sección */
-padding: 2rem;
-background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Cambiado a center para centrar la sección */
+    padding: 2rem;
+    background-color: #f8f8f8;
 }
 
 #contacto h2 {
