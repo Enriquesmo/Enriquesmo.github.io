@@ -83,12 +83,46 @@
             const nav = document.querySelector('.nav');
             nav.classList.toggle('mobile-nav');
         }
+
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    </script>
 
-    <script>
+        // Navegación suave para los enlaces de la barra de navegación y el botón de contacto
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelectorAll(".nav ul li a");
+            const contactButton = document.querySelector(".buttons-container button:nth-child(2)");
+            const logoContainer = document.querySelector(".logo-container a");
+            const logoName = document.querySelector(".logo-name");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            contactButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetSection = document.getElementById("contacto");
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            logoContainer.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetSection = document.getElementById("inicio");
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            logoName.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetSection = document.getElementById("inicio");
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
         function copyEmail(button) {
             const email = "sanchezmigallonochoaenrique@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
@@ -132,14 +166,16 @@
             <a href="#inicio">
                 <img src="images/Logo_Sin_Fondo.png" alt="Logotipo">
             </a>
-            <span class="logo-name">Enrique Sánchez-Migallón Ochoa</span> 
+            <a href="#inicio" class="logo-name">Enrique Sánchez-Migallón Ochoa</a>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
         <nav class="nav">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#conoceme">Conóceme</a></li>
+                <li><a href="#formacion">Formación</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -153,7 +189,7 @@
                 <button onclick="window.location.href='downloads/EnriqueSanchezMigallonOchoaCV-CorreoUniversidad.pdf'">
                     <span>Descargar CV</span>
                 </button>
-                <button onclick="window.location.href='#contacto'">
+                <button>
                     <span>Contacto</span>
                 </button>
             </div>
@@ -161,43 +197,61 @@
         <img src="images/Foto_Perfil.jpg" alt="Foto_Perfil" class="fade-in-element">
     </section>
 
-    <section id="proyectos">
-        <h2>Proyectos</h2>
-    </section>
-
-    <section id="educacion">
-        <h2>Educación</h2>
-    </section>
-
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <div class="contact-info">
-            <p>Estoy interesado en trabajar conjuntamente en proyectos interesantes. Puedes contactarme a través de mi email:</p>
-            <button class="email-button" onclick="copyEmail(this)">
-                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-                    <path d="M19 21H9c-1.1 0-2-.9-2-2V7H5v12c0 1.1.9 2 2 2h12v-2zM15 3H7c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H7V5h8v12z"/>
-                </svg>
-                <span class="button-text">sanchezmigallonochoaenrique@gmail.com</span>
-            </button>
+    <section id="conoceme">
+        <div class="section-container">
+            <h2>Conóceme</h2>
         </div>
-        <div class="card">
-            <a href="https://www.linkedin.com/in/enrique-sánchez-migallón-ochoa-934380314/" class="socialContainer containerThree">
-                <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
-                    <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
-                </svg>
-            </a>
+    </section>
+
+    <section id="formacion">
+        <div class="section-container">
+            <h2>Formación</h2>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <div class="section-container">
+            <h2>Habilidades</h2>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="section-container">
+            <h2>Portfolio</h2>
+        </div>
+    </section>
     
-            <a href="mailto:sanchezmigallonochoaenrique@gmail.com" class="socialContainer containerFive">
-                <svg class="socialSvg gmailSvg" viewBox="0 0 24 24">
-                    <path d="M12 12.713l-11.99-8.713h23.98l-11.99 8.713zm-12-10.713v20h24v-20h-24z"></path>
-                </svg>
-            </a>
-    
-            <a href="https://github.com/Enriquesmo" class="socialContainer containerSix">
-                <svg class="socialSvg githubSvg" viewBox="0 0 16 16">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
-            </a>
+    <section id="contacto">
+        <div class="section-container">
+            <h2>Contacto</h2>
+            <div class="contact-info">
+                <p>Estoy interesado en trabajar conjuntamente en proyectos interesantes. Puedes contactarme a través de mi email:</p>
+                <button class="email-button" onclick="copyEmail(this)">
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M19 21H9c-1.1 0-2-.9-2-2V7H5v12c0 1.1.9 2 2 2h12v-2zM15 3H7c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H7V5h8v12z"/>
+                    </svg>
+                    <span class="button-text">sanchezmigallonochoaenrique@gmail.com</span>
+                </button>
+            </div>
+            <div class="card">
+                <a href="https://www.linkedin.com/in/enrique-sánchez-migallón-ochoa-934380314/" class="socialContainer containerThree">
+                    <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+                        <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
+                    </svg>
+                </a>
+        
+                <a href="mailto:sanchezmigallonochoaenrique@gmail.com" class="socialContainer containerFive">
+                    <svg class="socialSvg gmailSvg" viewBox="0 0 24 24">
+                        <path d="M12 12.713l-11.99-8.713h23.98l-11.99 8.713zm-12-10.713v20h24v-20h-24z"></path>
+                    </svg>
+                </a>
+        
+                <a href="https://github.com/Enriquesmo" class="socialContainer containerSix">
+                    <svg class="socialSvg githubSvg" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -207,8 +261,8 @@
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll("section");
-    
+            const sectionContainers = document.querySelectorAll(".section-container");
+
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -219,9 +273,9 @@
             }, {
                 threshold: 0.1
             });
-    
-            sections.forEach(section => {
-                observer.observe(section);
+
+            sectionContainers.forEach(container => {
+                observer.observe(container);
             });
         });
     </script>
