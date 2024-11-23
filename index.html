@@ -147,6 +147,18 @@
                 }, 2000);
             });
         }
+        function copyEmail2(button) {
+            const email = "enrique.sanchez9@alu.uclm.es";
+            navigator.clipboard.writeText(email).then(() => {
+                const buttonText = button.querySelector('.button-text');
+                buttonText.textContent = "¡Email copiado al Portapapeles!";
+                button.classList.add("copied");
+                setTimeout(() => {
+                    buttonText.textContent = email;
+                    button.classList.remove("copied");
+                }, 2000);
+            });
+        }
     </script>
     <script>
         // Configuración de Slick Carousel
@@ -161,6 +173,12 @@
                 arrows: true
             });
         });
+    </script>
+    <script>
+        function scrollToContact() {
+            const targetSection = document.getElementById("contacto");
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </head>
 
@@ -238,6 +256,11 @@
                     <span>Contacto</span>
                 </button>
             </div>
+            <div class="typing-container">
+                <div class="typing">Estudiante</div>
+                <div class="typing">Ingeniería</div>
+                <div class="typing">Informática</div>
+              </div>
         </div>
         <img src="images/Foto_Perfil.jpg" alt="Foto_Perfil" class="fade-in-element">
     </section>
@@ -249,7 +272,7 @@
             <div class="about-me">
                 <img src="images/Foto_Conoceme.png" alt="Foto de Enrique" class="large-photo fade-in-element">
                 <p>
-                    <strong>¡Hola!</strong> Soy <strong>Enrique Sánchez-Migallón Ochoa</strong>, un apasionado estudiante de Ingeniería Informática en la UCLM. Mi interés por la tecnología y la resolución de problemas comenzó desde joven, combinando creatividad y lógica para afrontar retos de todo tipo.
+                    <strong>¡Hola!</strong> Soy <strong>Enrique Sánchez-Migallón Ochoa</strong>, un apasionado estudiante de Ingeniería Informática en la ESI. Mi interés por la tecnología y la resolución de problemas comenzó desde joven, combinando creatividad y lógica para afrontar retos de todo tipo.
                 </p>
                 <p>
                     Además de mi formación técnica, destaco por mi curiosidad innata, que me llevó a participar en la segunda edición de la actividad 
@@ -263,6 +286,9 @@
                 </p>
                 <p>
                     <strong>¡Descubre cómo puedo marcar la diferencia!</strong>
+                    <button onclick="scrollToContact()">
+                        <span>Contacto</span>
+                    </button>
                 </p>
                 
             </div>
@@ -330,33 +356,45 @@
     <section id="formacion">
         <div class="section-container">
             <h2 class="section-title">Formación</h2>
+            <img src="images/work_in_progress.png" alt="Foto temporal">
         </div>
     </section>
 
     <section id="habilidades">
         <div class="section-container">
             <h2 class="section-title">Habilidades</h2>
+            <img src="images/work_in_progress.png" alt="Foto temporal">
         </div>
     </section>
 
     <section id="portfolio">
         <div class="section-container">
             <h2 class="section-title">PortFolio</h2>
+            <img src="images/work_in_progress.png" alt="Foto temporal">
         </div>
     </section>
     
     <section id="contacto">
         <div class="section-container">
             <h2 class="section-title">Contacto</h2>
+            <p><strong>¡EMOCIONADO DE UNIRME A TU EQUIPO!</strong></p>
+            <p>Si necesitas a alguien con pasión por la informática y con ganas de trabajar, ¡no dudes en escribirme! ¡Te mostraré cómo mi energía y habilidades pueden sumar a tu equipo!</p>
+            <h3 class="section-subtitle">Correo Electronico</h3>
             <div class="contact-info">
-                <p>Estoy interesado en trabajar conjuntamente en proyectos interesantes. Puedes contactarme a través de mi email:</p>
                 <button class="email-button" onclick="copyEmail(this)">
                     <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
                         <path d="M19 21H9c-1.1 0-2-.9-2-2V7H5v12c0 1.1.9 2 2 2h12v-2zM15 3H7c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H7V5h8v12z"/>
                     </svg>
                     <span class="button-text">sanchezmigallonochoaenrique@gmail.com</span>
                 </button>
+                <button class="email-button" onclick="copyEmail2(this)">
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M19 21H9c-1.1 0-2-.9-2-2V7H5v12c0 1.1.9 2 2 2h12v-2zM15 3H7c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H7V5h8v12z"/>
+                    </svg>
+                    <span class="button-text">enrique.sanchez9@alu.uclm.es</span>
+                </button>
             </div>
+            <h3 class="section-subtitle">Redes Sociales</h3>
             <div class="card">
                 <a href="https://www.linkedin.com/in/enrique-sánchez-migallón-ochoa-934380314/" class="socialContainer containerThree">
                     <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
