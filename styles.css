@@ -392,20 +392,28 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+    gap: 20px; /* Espacio entre los elementos */
 }
 
 #conoceme .interest {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    text-align: left;
+    text-align: center;
+    background-color: #f9f9f9; /* Fondo claro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el efecto de tarjeta */
+    width: calc(33.333% - 20px); /* Tres elementos por fila con espacio entre ellos */
+    box-sizing: border-box;
 }
 
 #conoceme .interest img {
     width: 100px;
     height: 100px;
-    border-radius: 0%;
-    margin-bottom: 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 #conoceme .inspirational-quotes .carousel {
@@ -420,6 +428,9 @@ footer {
     gap: 10px;
     min-width: 300px;
     text-align: left;
+    border: 2px solid #333; /* Añade un borde */
+    padding: 10px; /* Añade un padding */
+    border-radius: 10px; /* Esquinas redondeadas opcionales */
 }
 
 #conoceme .inspirational-quotes .quote img {
