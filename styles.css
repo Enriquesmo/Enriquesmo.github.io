@@ -443,6 +443,12 @@ footer {
     margin: 0 auto;
 }
 /* ---------- Seccion de Formación ---------- */
+.section-container {
+    max-width: 1200px; /* Ajusta este valor según el tamaño máximo deseado */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0 1rem; /* Añade un poco de padding lateral */
+}
+
 .mini-section {
     margin-bottom: 2rem;
 }
@@ -450,6 +456,7 @@ footer {
 .mini-section-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    text-align: left; /* Alinea los títulos a la izquierda */
 }
 
 .timeline {
