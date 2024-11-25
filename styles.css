@@ -660,15 +660,52 @@ button:hover span {
 }
 
 /* ---------- Media Queries - Cosas de la Version de Moviles/SmartPhones ---------- */
+/* Media Queries para Responsividad */
+
+/* Estilos para pantallas pequeñas (smartphones) */
 @media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem; /* Reducir el padding */
+        height: 50px; /* Ajustar la altura */
+    }
+
+    header .logo-container {
+        display: flex;
+        align-items: center;
+        margin-left: 0; /* Mover el logo a la izquierda */
+    }
+
+    header img {
+        width: 40px; /* Hacer el logo más pequeño */
+        margin-right: 10px; /* Espacio entre el logo y el nombre */
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav ul li {
+        margin: 0.5rem 0;
+    }
+
     .menu-toggle {
         display: block;
         cursor: pointer;
         font-size: 2rem;
         color: #333;
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        top: 50%;
+        left: 90%;
+        transform: translate(-50%, -50%); /* Centrar el menu-toggle */
     }
 
     .nav {
@@ -681,7 +718,7 @@ button:hover span {
         align-items: center;
         background: #f8f8f8;
         position: absolute;
-        top: 60px;
+        top: 50px; /* Ajustar la posición para la nueva altura */
         right: 0;
         width: 100%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -726,9 +763,62 @@ button:hover span {
     header .logo-name {
         font-size: 0.8rem;
     }
+
+    /* Estilos para la sección Conóceme en pantallas pequeñas */
+    #conoceme .about-me {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #conoceme .about-me .large-photo {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    #conoceme .interests-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #conoceme .interest {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #conoceme .inspirational-quotes .carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #conoceme .inspirational-quotes .quote {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
+/* Estilos para pantallas medianas y grandes (tablets y desktops) */
 @media (min-width: 769px) {
+    header {
+        flex-direction: row;
+        padding: 0.5rem 2rem;
+    }
+
+    .nav {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav ul {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav ul li {
+        margin: 0 1rem;
+    }
+
     .menu-toggle {
         display: none; /* Ocultar el botón de menú hamburguesa en pantallas grandes */
     }
