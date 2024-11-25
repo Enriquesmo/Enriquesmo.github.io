@@ -154,28 +154,29 @@
             const contactButton = document.querySelector(".buttons-container button:nth-child(2)");
             const logoContainer = document.querySelector(".logo-container a");
             const logoName = document.querySelector(".logo-name");
-    
+
             navLinks.forEach(link => {
                 link.addEventListener("click", (event) => {
                     event.preventDefault();
                     const targetId = link.getAttribute("href").substring(1);
                     const targetSection = document.getElementById(targetId);
                     targetSection.scrollIntoView({ behavior: 'smooth' });
+                    toggleMenu(); // Contraer el menú después de hacer scroll
                 });
             });
-    
+
             contactButton.addEventListener("click", (event) => {
                 event.preventDefault();
                 const targetSection = document.getElementById("contacto");
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             });
-    
+
             logoContainer.addEventListener("click", (event) => {
                 event.preventDefault();
                 const targetSection = document.getElementById("inicio");
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             });
-    
+
             logoName.addEventListener("click", (event) => {
                 event.preventDefault();
                 const targetSection = document.getElementById("inicio");
@@ -453,7 +454,7 @@
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <p><strong>Inglés</strong></p>
-                            <p>B2 <i><a href="https://www.trinitycollege.com/local-trinity/spain" target="_blank">Trinity College London</a> </p>
+                            <p>B2 <i><a href="https://www.trinitycollege.com/local-trinity/spain" target="_blank">Trinity College London</a></i></p>
                         </div>
                     </div>
                 </div>
@@ -471,7 +472,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="mini-section">
                 <h3 class="mini-section-title">Otros datos de interés</h3>
                 <div class="timeline">
@@ -495,7 +496,223 @@
     <section id="habilidades">
         <div class="section-container">
             <h2 class="section-title">Habilidades</h2>
-            <img src="images/work_in_progress.png" alt="Foto temporal">
+            <div class="skills-group">
+                <h3 class="section-subtitle">Habilidades no técnicas</h3>
+                <p>¡Más que habilidades, son experiencias compartidas! Mi enfoque colaborativo y actitud proactiva transforman cada interacción en una oportunidad para crecer juntos. Acompáñame a descubrir cómo la empatía, la comunicación y el trabajo en equipo son clave en mi forma de afrontar cada desafío.</p>
+                <div class="skills-grid">
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill1.png" alt="Responsable">
+                        <p>Responsable</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill2.png" alt="Trabajador">
+                        <p>Trabajador</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill3.png" alt="Empático">
+                        <p>Empático</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill4.png" alt="Sociable">
+                        <p>Sociable</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill5.png" alt="Flexible">
+                        <p>Flexible</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill6.png" alt="TEquipo">
+                        <p>Trabajo en Equipo</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill7.png" alt="Liderazgo">
+                        <p>Liderazgo</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill8.png" alt="Proactivo">
+                        <p>Proactivo</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill9.png" alt="Creativo">
+                        <p>Creativo</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill10.png" alt="Versatil">
+                        <p>Versatil</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-group">
+                <h3 class="section-subtitle">Habilidades técnicas</h3>
+                <p>¡El corazón de mis proyectos! Cada herramienta y tecnología que manejo refleja horas de práctica y aprendizaje continuo. Desde la lenguajes de programación hasta entornos de desarrollo, descubre que tencologías utilizo para convertir grandes ideas en realidad.</p>
+                <h4>Lenguajes de programación</h4>
+                <div class="skills-grid">
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill11.png" alt="Java">
+                        <p>Java</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill12.png" alt="Python">
+                        <p>Python</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill13.png" alt="C++">
+                        <p>C++</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill14.png" alt="R">
+                        <p>R</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill15.png" alt="MatLab">
+                        <p>MatLab</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill16.png" alt="C#">
+                        <p>C#</p>
+                    </div>
+                    <div class="skill">
+                        <img src="images/Imagenes_Habilidades/skill17.png" alt="Visual Basic">
+                        <p>Visual Basic</p>
+                    </div>
+                </div>
+                <h4>Lenguajes estéticos y de marcas</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill18.png" alt="HTML">
+                            <p>HTML</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill19.png" alt="CSS">
+                            <p>CSS</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill20.png" alt="XML">
+                            <p>XML</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill21.png" alt="XMAL">
+                            <p>XMAL</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill22.png" alt="Markdown">
+                            <p>Markdown</p>
+                        </div>
+                    </div>
+                <h4>Enotrnos Frontend</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill23.png" alt="React">
+                            <p>React</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill24.png" alt="Node">
+                            <p>Node</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill25.png" alt="Angular">
+                            <p>Angular</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill26.png" alt="UWP">
+                            <p>UWP</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill27.png" alt="WPF">
+                            <p>WPF</p>
+                        </div>
+                    </div>
+                <h4>Enotrnos Backend</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill28.png" alt=".NET">
+                            <p>.NET</p>
+                        </div>
+                    </div>
+                <h4>Bases de datos</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill29.png" alt="MySQL">
+                            <p>MySQL</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill30.png" alt="Oracle">
+                            <p>Oracle</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill31.png" alt="phpMyAdmin">
+                            <p>phpMyAdmin</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill32.png" alt="MongoDB">
+                            <p>MongoDB</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill33.png" alt="Access">
+                            <p>Access</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill34.png" alt="SQLAlchemy">
+                            <p>SQLAlchemy</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill35.png" alt="SQLite">
+                            <p>SQLite</p>
+                        </div>
+                    </div>
+                <h4>Gestión de Contenido Web (CMS)</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill36.png" alt="Wordpress">
+                            <p>Wordpress</p>
+                        </div>
+                    </div>
+                <h4>Gestión de Proyectos</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill37.png" alt="Microsoft Proyect">
+                            <p>Microsoft Proyect</p>
+                        </div>
+                    </div>
+                <h4>Control de Versiones</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill38.png" alt="Git">
+                            <p>Git</p>
+                        </div>
+                    </div>
+                <h4>Entornos de Desarrollo</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill39.png" alt="Visual Studio Code">
+                            <p>Visual Studio Code</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill40.png" alt="Visual Studio">
+                            <p>Visual Studio Code</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill41.png" alt="Expression Blend">
+                            <p>Expression Blend</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill42.png" alt="Eclipse">
+                            <p>Eclipse</p>
+                        </div>
+                    </div>
+                <h4>Sistemas Operativos</h4>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill43.png" alt="Windows">
+                            <p>Windows</p>
+                        </div>
+                        <div class="skill">
+                            <img src="images/Imagenes_Habilidades/skill44.png" alt="Linux">
+                            <p>Linux</p>
+                        </div>
+                    </div>
+            </div>
         </div>
     </section>
 

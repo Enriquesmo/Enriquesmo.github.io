@@ -2,12 +2,14 @@
 * {
     margin: 0;
     padding: 0;
+    max-width: 100%;
     box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* ---------- Botón "Volver al inicio" ---------- */
@@ -487,6 +489,60 @@ footer {
     text-align: left;
 }
 
+/* ---------- Seccion de Habilidades ---------- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas por defecto */
+    gap: 20px; /* Espacio entre los elementos */
+    margin-bottom: 20px;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.skill img {
+    max-width: 50px; /* Ajusta el tamaño de la imagen según sea necesario */
+    margin-right: 1rem;
+}
+
+.skill p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Estilo para los h4 de la sección habilidades */
+#habilidades h4 {
+    text-align: left;
+    margin-top: 20px; /* Añade un margen superior para separar los títulos de las secciones anteriores */
+}
+
+/* Media Queries para Responsividad */
+
+/* Estilos para pantallas pequeñas (smartphones) */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .skill {
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: flex-start; /* Alinea los elementos al inicio */
+    }
+
+    .skill img {
+        margin-bottom: 10px; /* Añade un margen inferior a la imagen */
+        margin-right: 0; /* Elimina el margen derecho */
+    }
+}
+
 /* ---------- Seccion de Contacto ---------- */
 #contacto {
     display: flex;
@@ -539,6 +595,7 @@ footer {
     justify-content: center;
     overflow: hidden;
     transition-duration: 0.3s;
+    margin-bottom: 15px;
 }
 
 /* linkdin */
@@ -854,6 +911,10 @@ button:hover span {
     .email-button {
         width: 100%; /* Ajustar el ancho al 100% del contenedor */
         font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+    }
+    .section-container, .skills-grid, .contact-info, .email-button {
+        width: 100%;
+        padding: 0 1rem; /* Ajusta el padding para evitar desbordamiento */
     }
 }
 
