@@ -442,7 +442,43 @@ footer {
     max-width: 1200px; /* Ajusta el valor según tus necesidades */
     margin: 0 auto;
 }
+/* ---------- Seccion de Formación ---------- */
+.mini-section {
+    margin-bottom: 2rem;
+}
 
+.mini-section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid #333;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    background-color: #333;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    margin-left: 2rem;
+    text-align: left;
+}
 
 /* ---------- Seccion de Contacto ---------- */
 #contacto {
@@ -795,6 +831,22 @@ button:hover span {
     #conoceme .inspirational-quotes .quote {
         width: 100%;
         max-width: 300px;
+    }
+    #contacto {
+        padding: 1rem; /* Reducir el padding */
+    }
+
+    #contacto h2 {
+        font-size: 1.5rem; /* Reducir el tamaño de la fuente */
+    }
+
+    .contact-info {
+        font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+    }
+
+    .email-button {
+        width: 100%; /* Ajustar el ancho al 100% del contenedor */
+        font-size: 0.9rem; /* Reducir el tamaño de la fuente */
     }
 }
 
