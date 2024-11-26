@@ -471,6 +471,15 @@ footer {
 .timeline-item {
     position: relative;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-icon {
+    width: 5rem; /* Ajusta el tamaño según sea necesario */
+    height: 5rem; /* Ajusta el tamaño según sea necesario */
+    margin-right: 2rem; /* Espacio entre la imagen y el contenido */
+    border-radius: 5%; /* Si quieres que la imagen sea circular */
 }
 
 .timeline-item::before {
@@ -478,15 +487,17 @@ footer {
     position: absolute;
     left: -1rem;
     top: 0;
-    width: 1rem;
-    height: 1rem;
-    background-color: #333;
+    width: 2rem; /* Ajusta el tamaño según sea necesario */
+    height: 2rem; /* Ajusta el tamaño según sea necesario */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 50%;
     transform: translateX(-50%);
 }
 
 .timeline-content {
-    margin-left: 2rem;
+    /*margin-left: 2rem;*/
     text-align: left;
 }
 
